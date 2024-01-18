@@ -1,12 +1,12 @@
 %% Four tank system DDMPC
 % Berberich et al.: Data-Driven Model Predictive Control with Stability and Robustness Guarantees
-% https://sci-hub.st/10.1109/tac.2020.3000182
+% https://arxiv.org/pdf/1906.04679.pdf
 % Berberich et al.: Data-Driven Tracking MPC for Changing Setpoints
-% https://sci-hub.st/10.1016/j.ifacol.2020.12.389
+% https://arxiv.org/pdf/1910.09443.pdf
 % Raff et al: Nonlinear MPC of a Four Tank System
-% https://sci-hub.st/10.1109/cca.2006.285898
+% https://ieeexplore.ieee.org/abstract/document/4776652
 % Coulson et al.: Data-Enabled Predictive Control: In the Shallows of the DeePC
-% https://sci-hub.st/10.23919/ecc.2019.8795639
+% https://arxiv.org/pdf/1811.05890.pdf
 clear;clc;close all;
 
 %% Define the model
