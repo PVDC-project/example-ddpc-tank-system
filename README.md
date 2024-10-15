@@ -1,1 +1,1 @@
-Running the example requires [YALMIP](https://yalmip.github.io/) and [OSQP](https://osqp.org/). Optionally, the solver `quadprog` (available in MATLAB) can be used by changing the `solver` option [here](https://github.com/PVDC-project/example-ddpc-tank-system/blob/main/TankDDPC.m#L103).
+Running the example requires [YALMIP](https://yalmip.github.io/). The QP solver is chosen automatically (defaults to `quadprog` in MATLAB if no additional solvers are installed).

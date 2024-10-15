@@ -99,10 +99,7 @@ constraints = [constraints, 0.99*y_min <= ys <= 0.99*y_max];  % equilibrium outp
 % define the controller
 parameters_in = {yT,u0,y0};  % reference and the current "state"
 solutions_out = {u,y,alpha};  % optimal input, output and "model"
-ops = sdpsettings('verbose',0,... % print output? (0-2)
-                  'solver','osqp',...
-                  'osqp.eps_abs',1e-3,...
-                  'osqp.eps_rel',1e-3);
+ops = sdpsettings('verbose',0);  % print output? (0-2)
 controller = optimizer(constraints,objective,ops,parameters_in,solutions_out);
 
 %% Closed-loop simulation
@@ -180,4 +177,18 @@ for i = 1:Nsim
     title('System output 2')
 
     pause(0.01) 
+end
+
+%% Auxiliary functions
+function H = HankelMatrix(x,L)
+% A function for constructing the Hankel matrix of size(nx*L,N-L+1) of a data
+% sequence of size nx x N (columns are individual samples).
+nx = size(x,1);
+N = size(x,2);
+H = nan(nx*L,N-L+1);
+
+X = x(:);  % concatenate data to a single vector
+for i = 1:N-L+1  % iterate over columns
+    H(:,i) = X((i-1)*nx+1:(i-1)*nx+L*nx);
+end
 end
